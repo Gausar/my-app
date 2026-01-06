@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav} from "react-bootstrap";
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
@@ -9,7 +10,7 @@ import logo from '../assets/img/gausar.png';
 export const NavBar = () => {
     const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const onScroll = () => {
             if (window.scrollY > 50){
@@ -28,6 +29,9 @@ export const NavBar = () => {
         setActiveLink(value);
     }
 
+    const handleClick = () => {
+        navigate('/contact');
+    }
     return (
         <Navbar expand="lg" className={scrolled ? "scrolled": ""}>
         <Container>
@@ -49,7 +53,7 @@ export const NavBar = () => {
                     <a href="https://www.facebook.com/gausar.amangyeldi.9/"><img src={navIcon2} alt="icon"/></a>
                     <a href="https://www.instagram.com/a_gausar/"><img src={navIcon3} alt="icon"/></a>
                 </div>
-                <button className="vvd" onClick={() => console.log('connect')}><span>Let's connect</span></button>
+                <button className="vvd" onClick={handleClick}><span>Let's connect</span></button>
             </span>
             </Navbar.Collapse>
         </Container>

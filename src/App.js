@@ -6,17 +6,26 @@ import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Footer } from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Contact } from './components/Contact';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Banner />
-      <Skills />
-      <Projects />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<div className="App">
+        <NavBar />
+        <Banner />
+        <Skills />
+        <Projects />
+        <Footer />
+      </div>} />
+        <Route path="/contact" element={<div>
+          <NavBar />
+            <Contact />
+          <Footer />
+        </div>} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;

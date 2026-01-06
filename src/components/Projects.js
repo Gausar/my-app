@@ -13,21 +13,25 @@ export const Projects = () => {
             title: "Chatbot NUM",
             description: "It was created to make the internal rules and regulations of the National University of Mongolia accessible to students and to resolve any problems that may arise.",
             imgUrl: projImg1,
+            link: "https://num-chatbot.vercel.app/",
         },
         {
             title: "Chatbot",
             description: "Machine Learning and Artificial Intellegence, Made out of curiosity, thanks to the free language model from Google Gemini.",
             imgUrl: projImg2,
+            link: "https://chatbot-gausars-projects.vercel.app/",
         },
         {
-            title: "Chatbot NUM",
-            description: "Future projects may placed here.. Insha Allah",
+            title: "No title",
+            description: "Future projects may placed here..",
             imgUrl: projImg1,
+            link: "",
         },
         {
-            title: "Chatbot NUM",
-            description: "Future projects may placed here.. Insha Allah",
+            title: "No title",
+            description: "Future projects may placed here..",
             imgUrl: projImg1,
+            link: "",
         },
     ];
     return (

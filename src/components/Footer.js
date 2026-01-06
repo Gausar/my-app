@@ -15,7 +15,7 @@ export const Footer = () => {
             {/* <img src={logo} alt="Logo" /> */}
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
-            <div className="social-icon">
+            <div className="social-icon d-flex justify-content-end mt-3">
               <a href="https://www.linkedin.com/in/gausar-amangyeldi-17308b298/"><img src={navIcon1} alt="Icon" /></a>
               <a href="https://www.facebook.com/gausar.amangyeldi.9/"><img src={navIcon2} alt="Icon" /></a>
               <a href="https://www.instagram.com/a_gausar/"><img src={navIcon3} alt="Icon" /></a>
