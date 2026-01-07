@@ -1,13 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import chat from '../assets/img/chat.png'
-import meter1 from '../assets/img/meter1.svg';
-import meter2 from '../assets/img/meter2.svg';
-import meter3 from '../assets/img/meter3.svg';
-
-import colorSharp from "../assets/img/color-sharp.png";
-
+import { PieChart } from '@mui/x-charts/PieChart';
 
 export const Skills = () => {
     const responsive = {
@@ -28,9 +22,49 @@ export const Skills = () => {
             items: 1
         }
     };
-
+    const skill_ml = [
+        { value: 10, label: 'skilled', color: '#d63384' },
+        { value: 90, label: "Unskilled", color: 'black'},
+    ]
+    const skill_web = [
+        { value: 30, label: 'skilled', color: '#d63384' },
+        { value: 70, label: "Unskilled", color: 'black'},
+    ]
+    const skill_lang = [
+        { value: 50, label: 'skilled', color: '#d63384' },
+        { value: 50, label: "Unskilled", color: 'black'},
+    ]
+    const skill_data = [
+        { value: 40, label: 'skilled', color: '#d63384' },
+        { value: 60, label: "Unskilled", color: 'black'},
+    ]
+    const settings = {
+        margin: { right: 5},
+        width: 180,
+        height: 180,
+        hideLegend: true,
+    }
+    const centerTextPlugin = {
+        id: 'centerText',
+        beforeDatasetsDraw(chart, args, pluginOptions) {
+          const { ctx } = chart;
+          ctx.save();
+          
+          // Calculate center coordinates
+          const xCoord = chart.getDatasetMeta(0).data[0].x;
+          const yCoord = chart.getDatasetMeta(0).data[0].y;
+      
+          ctx.font = '20px sans-serif';
+          ctx.fillStyle = 'white';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('ML/AI', xCoord, yCoord);
+          ctx.restore();
+        },
+      };
     return(
         <section className="skill" id="skills">
+            {/* <img className="background-image-skills-right" src={colorSharp2} alt="skills background" /> */}
             <Container>
                 <Row>
                     <Col>
@@ -38,30 +72,34 @@ export const Skills = () => {
                             <h2>
                                 Skills
                             </h2>
-                            <p>It is not true, hha, just my dreams</p>
+                            <p>I am improving my skills...</p>
                             <Carousel responsive={responsive} infinite={true} className="skill-slider">
                                 <div className="item">
-                                    <img src={meter3} alt="Image"/>
-                                    <h6>ML/AI</h6>
+                                    <PieChart series={[{ innerRadius: 60, outerRadius: 80, data: skill_ml, arcLabel: 'value', cornerRadius: 80, paddingAngle: 3}]}
+                                    {...settings} plugins={[centerTextPlugin]} />
+                                    <h6 className="mt-2">ML/AI</h6>
                                 </div>
                                 <div className="item">
-                                    <img src={meter2} alt="Image"/>
-                                    <h6>Web develop</h6>
+                                    <PieChart series={[{ innerRadius: 60, outerRadius: 80, data: skill_web, arcLabel: 'value', cornerRadius: 80, paddingAngle: 3}]}
+                                    {...settings} />
+                                    <h6 className="mt-2">Web develop</h6>
                                 </div>
                                 <div className="item">
-                                    <img src={meter3} alt="Image"/>
-                                    <h6>Data Analysis</h6>
+                                    <PieChart series={[{ innerRadius: 60, outerRadius: 80, data: skill_data, arcLabel: 'value', cornerRadius: 80, paddingAngle: 3}]}
+                                    {...settings} />
+                                    <h6 className="mt-2">Data Analysis</h6>
                                 </div>
                                 <div className="item">
-                                    <img src={meter1} alt="Image"/>
-                                    <h6>Language skills</h6>
+                                    <PieChart series={[{ innerRadius: 60, outerRadius: 80, data: skill_lang, arcLabel: 'value', cornerRadius: 80, paddingAngle: 3}]}
+                                    {...settings} />
+                                    <h6 className="mt-2">Language skills</h6>
                                 </div>
                             </Carousel>
                         </div>
                     </Col>
                 </Row>
             </Container>
-            <img className="background-image-left" src={colorSharp} />
+            {/* <img className="background-image-left" src={colorSharp} alt="skills background" /> */}
         </section>
     )
 }

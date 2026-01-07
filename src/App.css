@@ -179,6 +179,7 @@ span.navbar-text{
   width: 40%;
   z-index: 1;
   transition: 0.3s ease-in-out;
+  margin: 0;
 }
 .social-icon a:hover img{
   filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%)
@@ -332,6 +333,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .skill {
   padding: 0 0 50px 0;
   position: relative;
+  background-image: url('./assets/img/color-sharp.png');
 }
 .skill-bx{
   background: #151515;
@@ -364,7 +366,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   top: 28%;
   position: absolute;
   bottom: 0;
-  width: 40%;
+  width: 50%;
+  z-index: -4;
+}
+.background-image-skills-right {
+  top: 28%;
+  position: absolute;
+  right: 0;
+  width: 50%;
   z-index: -4;
 }
 
@@ -486,20 +495,23 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 15px;
   letter-spacing: 0.8px;
 }
-.background-image-right {
-  top: 20%;
+.background-image-projects-right {
   position: absolute;
   bottom: 0;
-  width: 35%;
-  right: 0;
+  width: 100%;
+  left: 0;
   z-index: -4;
 }
 
 /************ Projects Css ************/
+.contact-page {
+  height: 100%;
+}
 .contact {
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  padding-top: 120px;
   padding-bottom: 100px;
+  display: flex;
+  /* height: 90%; */
 }
 .contact img {
   width: 92%;
@@ -523,6 +535,24 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.8px;
   transition: 0.3s ease-in-out;
 }
+@media (max-width: 768px) {
+  .contact form input, .contact form textarea {
+    width: 90%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .contact form button {
+    width: 90%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  img {
+    margin-top: 50px;
+  }
+  h2 {
+    margin-left: 20px;
+  }
+}
 .contact form input:focus, .contact form textarea:focus {
   background: rgba(255, 255, 255, 1);
   color: #121212;
@@ -542,8 +572,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-color: #fff;
   padding: 14px 48px;
   font-size: 18px;
-  margin-top: 25px;
-  border-radius: 0;
+  border-radius: 10px;
   position: relative;
   transition: 0.3s ease-in-out;
 }

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { NavBar } from './components/NavBar';
 import { Banner } from './components/Banner';
@@ -20,8 +19,7 @@ export default function App() {
         <Projects />
         <Footer />
       </div>} />
-        <Route path="/contact" element={<div>
-          <NavBar />
+        <Route path="/contact" element={<div className="contact-page">
             <Contact />
           <Footer />
         </div>} />
