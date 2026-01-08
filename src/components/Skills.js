@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { PieChart } from '@mui/x-charts/PieChart';
+import { MyPieChart } from './PieChart';
 
 export const Skills = () => {
     const responsive = {
@@ -44,27 +44,9 @@ export const Skills = () => {
         height: 180,
         hideLegend: true,
     }
-    const centerTextPlugin = {
-        id: 'centerText',
-        beforeDatasetsDraw(chart, args, pluginOptions) {
-          const { ctx } = chart;
-          ctx.save();
-          
-          // Calculate center coordinates
-          const xCoord = chart.getDatasetMeta(0).data[0].x;
-          const yCoord = chart.getDatasetMeta(0).data[0].y;
-      
-          ctx.font = '20px sans-serif';
-          ctx.fillStyle = 'white';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText('ML/AI', xCoord, yCoord);
-          ctx.restore();
-        },
-      };
+   
     return(
         <section className="skill" id="skills">
-            {/* <img className="background-image-skills-right" src={colorSharp2} alt="skills background" /> */}
             <Container>
                 <Row>
                     <Col>
@@ -74,32 +56,15 @@ export const Skills = () => {
                             </h2>
                             <p>I am improving my skills...</p>
                             <Carousel responsive={responsive} infinite={true} className="skill-slider">
-                                <div className="item">
-                                    <PieChart series={[{ innerRadius: 60, outerRadius: 80, data: skill_ml, arcLabel: 'value', cornerRadius: 80, paddingAngle: 3}]}
-                                    {...settings} plugins={[centerTextPlugin]} />
-                                    <h6 className="mt-2">ML/AI</h6>
-                                </div>
-                                <div className="item">
-                                    <PieChart series={[{ innerRadius: 60, outerRadius: 80, data: skill_web, arcLabel: 'value', cornerRadius: 80, paddingAngle: 3}]}
-                                    {...settings} />
-                                    <h6 className="mt-2">Web develop</h6>
-                                </div>
-                                <div className="item">
-                                    <PieChart series={[{ innerRadius: 60, outerRadius: 80, data: skill_data, arcLabel: 'value', cornerRadius: 80, paddingAngle: 3}]}
-                                    {...settings} />
-                                    <h6 className="mt-2">Data Analysis</h6>
-                                </div>
-                                <div className="item">
-                                    <PieChart series={[{ innerRadius: 60, outerRadius: 80, data: skill_lang, arcLabel: 'value', cornerRadius: 80, paddingAngle: 3}]}
-                                    {...settings} />
-                                    <h6 className="mt-2">Language skills</h6>
-                                </div>
+                                    <MyPieChart data={skill_ml} settings={settings} value={10} label="skilled" title="ML/AI" />
+                                    <MyPieChart data={skill_web} settings={settings} value={30} label="skilled" title="Web develop" />
+                                    <MyPieChart data={skill_data} settings={settings} value={40} label="skilled" title="Data Analysis" />
+                                    <MyPieChart data={skill_lang} settings={settings} value={50} label="skilled" title="Language skills" />
                             </Carousel>
                         </div>
                     </Col>
                 </Row>
             </Container>
-            {/* <img className="background-image-left" src={colorSharp} alt="skills background" /> */}
         </section>
     )
 }

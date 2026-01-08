@@ -40,17 +40,17 @@ export const Projects = () => {
                 <Row>
                     <Col>
                     <h2>Projects</h2>
-                    <p>The things I've done don't end there. I'm too lazy to include them here. </p>
+                    <p>Please click on project, then you will be redirected to the project's website.</p>
                     <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                         <Nav.Item>
-                            <Nav.Link eventKey="first">Tan one</Nav.Link>
+                            <Nav.Link eventKey="first">2025</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="second">Tab two</Nav.Link>
+                            <Nav.Link eventKey="second">2026</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="third">Tab three</Nav.Link>
+                            <Nav.Link eventKey="third">2027</Nav.Link>
                         </Nav.Item>
                     </Nav>
                     <Tab.Content>

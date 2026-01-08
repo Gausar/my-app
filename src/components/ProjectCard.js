@@ -8,6 +8,7 @@ export const ProjectCard = ({title, description, imgUrl, link}) => {
                 <div className="proj-txtx">
                     <h4>{title}</h4>
                     <span>{description}</span>
+                    <br/>
                     <a href={link} target="_blank" rel="noopener noreferrer">View Project</a>
                 </div>
             </div>

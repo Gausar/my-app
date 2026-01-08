@@ -1,85 +1,124 @@
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import contactImg from '../assets/img/contact-img.svg';
+import contactImg from "../assets/img/contact-img.svg";
 
 export const Contact = () => {
-    const formInitialDetails = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: ''
+  const formInitialDetails = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  };
+
+  const [formDetails, setFormDetails] = useState(formInitialDetails);
+  const [buttonText, setButtonText] = useState("Send");
+  const [status, setStatus] = useState(null);
+
+  const onFormUpdate = (field, value) => {
+    setFormDetails((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setButtonText("Sending...");
+
+    try {
+      const response = await fetch("http://localhost:5000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDetails),
+      });
+
+      const result = await response.json();
+
+      setButtonText("Send");
+      setFormDetails(formInitialDetails);
+
+      if (response.ok) {
+        setStatus({ success: true, message: "Message sent successfully!" });
+      } else {
+        setStatus({ success: false, message: result.message });
+      }
+    } catch (error) {
+      setButtonText("Send");
+      setStatus({ success: false, message: "Server error" });
     }
+  };
 
-    const [formDetails, setFormDetails] = useState(formInitialDetails);
-    const [buttonText, setButtonText] = useState('Send');
-    const [status, setStatus] = useState({});
+  return (
+    <section className="contact" id="contact">
+      <Container>
+        <Row className="align-items-center">
+          <Col md={6}>
+            <img src={contactImg} alt="Contact" />
+          </Col>
+          <Col md={6}>
+            <h2>Get in touch</h2>
+            <form onSubmit={handleSubmit}>
+              <Row>
+                <Col sm={6} className="px-1">
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    value={formDetails.firstName}
+                    onChange={(e) => onFormUpdate("firstName", e.target.value)}
+                  />
+                </Col>
 
-    const onFormUpdate = (category, value) => {
-        setFormDetails({
-            ...formDetails,
-            [category]: value
-        })
-    }
+                <Col sm={6} className="px-1">
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    value={formDetails.lastName}
+                    onChange={(e) => onFormUpdate("lastName", e.target.value)}
+                  />
+                </Col>
 
-    const handleSubmit = async (e) => {
-        setButtonText('Sending...');
-        let response = await fetch("http://localhost:5000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "Application/json; charset=utf-8",
-            },
-            body: JSON.stringify(formDetails),
-        });
-        setButtonText("Send");
-        let result = response.json();
-        setFormDetails(formInitialDetails);
-        if (result.code === 200){
-            setStatus({success: true, message: 'Message sent successfully'});
-        }
-        else {
-            setStatus({success: false, message: 'Something went wrong, please try again!'});
-        }
-    };
+                <Col sm={6} className="px-1">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={formDetails.email}
+                    onChange={(e) => onFormUpdate("email", e.target.value)}
+                  />
+                </Col>
 
-    return (
-        <section className="contact" id="contact">
-            <Container>
-                <Row className="align-items-center">
-                    <Col md={6}>
-                        <img src={contactImg} alt="Contact me"/>
-                    </Col>
-                    <Col md={6}>
-                        <h2>Get in touch</h2>
-                        <form onSubmit={handleSubmit}>
-                            <Row>
-                                <Col sm={6} className="px-1">
-                                    <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
-                                </Col>
-                                <Col sm={6} className="px-1">
-                                    <input type="text" value={formDetails.lastNameName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)} />
-                                </Col>
-                                <Col sm={6} className="px-1">
-                                    <input type="email" value={formDetails.email} placeholder="E-mail address" onChange={(e) => onFormUpdate('email', e.target.value)} />
-                                </Col>
-                                <Col sm={6} className="px-1">
-                                    <input type="tel" value={formDetails.phone} placeholder="Phone number" onChange={(e) => onFormUpdate('phone', e.target.value)} />
-                                </Col>
-                                <Col>
-                                    <textarea row="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)} />
-                                    <button type="submit"><span>{buttonText}</span></button>
-                                </Col>
-                                {
-                                    status.message && 
-                                    <Col>
-                                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                                    </Col>
-                                }
-                            </Row>
-                        </form>
-                    </Col>
-                </Row>
-            </Container>
-        </section>
-    )
-}
+                <Col sm={6} className="px-1">
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    value={formDetails.phone}
+                    onChange={(e) => onFormUpdate("phone", e.target.value)}
+                  />
+                </Col>
+
+                <Col>
+                  <textarea
+                    rows="6"
+                    placeholder="Message"
+                    value={formDetails.message}
+                    onChange={(e) => onFormUpdate("message", e.target.value)}
+                  />
+                  <button type="submit">
+                    <span>{buttonText}</span>
+                  </button>
+                </Col>
+
+                {status && (
+                  <Col>
+                    <p className={status.success ? "success" : "danger"}>
+                      {status.message}
+                    </p>
+                  </Col>
+                )}
+              </Row>
+            </form>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
+};
