@@ -24,7 +24,7 @@ export const Contact = () => {
     setButtonText("Sending...");
 
     try {
-      const response = await fetch("http://localhost:5000/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
