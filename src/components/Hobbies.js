@@ -11,12 +11,12 @@ const HOBBIES = [
   {
     icon: Activity,
     title: "Running",
-    text: "Clears my head and resets focus between long coding sessions.",
+    text: "I run regularly to maintain my physical well-being, clear my mind, and regain a sense of calm and focus.",
   },
   {
     icon: BookHalf,
     title: "Reading",
-    text: "Mostly non-fiction on technology, people and how things work and literature.",
+    text: "I read whenever I have free time, particularly enjoying literature and non-fiction books about technology, people, and how things work.",
   },
 ];
 
