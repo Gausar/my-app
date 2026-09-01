@@ -15,6 +15,32 @@ const PLACEHOLDER_PHOTO =
      </svg>`
   );
 
+// Rendered twice: under the photo on desktop, after the facts on mobile
+// (see the d-none / d-md-none wrappers below).
+const LanguagesBlock = ({ languages }) => (
+  <div className="about-languages">
+    <span className="about-block-label">Languages</span>
+    <div className="lang-list">
+      {languages.map((lang) => (
+        <div className="lang-item" key={lang.name}>
+          <div className="lang-row">
+            <span className="lang-name">{lang.name}</span>
+            <span className="lang-level">{lang.level}</span>
+          </div>
+          <div className="lang-dots" aria-hidden="true">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <span
+                key={n}
+                className={"lang-dot" + (n <= lang.dots ? " filled" : "")}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 export const About = () => {
   const [photoSrc, setPhotoSrc] = useState("/profile.jpeg");
 
@@ -47,26 +73,8 @@ export const About = () => {
                   onError={() => setPhotoSrc(PLACEHOLDER_PHOTO)}
                 />
               </div>
-              <div className="about-languages">
-                <span className="about-block-label">Languages</span>
-                <div className="lang-list">
-                  {languages.map((lang) => (
-                    <div className="lang-item" key={lang.name}>
-                      <div className="lang-row">
-                        <span className="lang-name">{lang.name}</span>
-                        <span className="lang-level">{lang.level}</span>
-                      </div>
-                      <div className="lang-dots" aria-hidden="true">
-                        {[1, 2, 3, 4, 5].map((n) => (
-                          <span
-                            key={n}
-                            className={"lang-dot" + (n <= lang.dots ? " filled" : "")}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="d-none d-md-block">
+                <LanguagesBlock languages={languages} />
               </div>
             </Reveal>
           </Col>
@@ -89,6 +97,10 @@ export const About = () => {
                   <span className="about-fact-value">{fact.value}</span>
                 </div>
               ))}
+            </div>
+
+            <div className="d-md-none">
+              <LanguagesBlock languages={languages} />
             </div>
 
             <div className="about-cta">

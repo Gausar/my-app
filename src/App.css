@@ -510,8 +510,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background: var(--color-accent);
 }
 @media (max-width: 767px) {
+  .about-languages {
+    max-width: none;
+    margin: 24px 0 6px;
+  }
   .lang-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 }
 .about-cta {
