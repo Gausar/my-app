@@ -16,7 +16,7 @@ const HOBBIES = [
   {
     icon: BookHalf,
     title: "Reading",
-    text: "Mostly non-fiction on technology, people and how things work.",
+    text: "Mostly non-fiction on technology, people and how things work and literature.",
   },
 ];
 
