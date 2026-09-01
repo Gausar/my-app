@@ -25,6 +25,31 @@ export const NavBar = () => {
         return () => window.removeEventListener("scroll", onScroll);
     }, [])
 
+    // Highlight the nav link for whichever section is currently in view.
+    useEffect(() => {
+        if (typeof IntersectionObserver === "undefined") return;
+
+        const ids = ["home", "about", "skills", "Projects", "timeline", "hobbies"];
+        const sections = ids
+            .map((id) => document.getElementById(id))
+            .filter(Boolean);
+        if (!sections.length) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveLink(entry.target.id.toLowerCase());
+                    }
+                });
+            },
+            { rootMargin: "-45% 0px -50% 0px" }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+        return () => observer.disconnect();
+    }, [])
+
     const onUpdateActiveLink = (value) => {
         setActiveLink(value);
     }
@@ -44,8 +69,11 @@ export const NavBar = () => {
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
                 <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick = {() => onUpdateActiveLink('home')}>Home</Nav.Link>
+                <Nav.Link href="#about" className={activeLink === 'about' ? 'active navbar-link' : 'navbar-link'} onClick = {() => onUpdateActiveLink('about')}>About</Nav.Link>
                 <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick = {() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
                 <Nav.Link href="#Projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick = {() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
+                <Nav.Link href="#timeline" className={activeLink === 'timeline' ? 'active navbar-link' : 'navbar-link'} onClick = {() => onUpdateActiveLink('timeline')}>Experience</Nav.Link>
+                <Nav.Link href="#hobbies" className={activeLink === 'hobbies' ? 'active navbar-link' : 'navbar-link'} onClick = {() => onUpdateActiveLink('hobbies')}>Hobbies</Nav.Link>
             </Nav>
             <span className="navbar-text">
                 <div className="social-icon">

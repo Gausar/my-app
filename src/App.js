@@ -1,9 +1,13 @@
 import './App.css';
 import { NavBar } from './components/NavBar';
 import { Banner } from './components/Banner';
+import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
+import { Timeline } from './components/Timeline';
+import { Hobbies } from './components/Hobbies';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Contact } from './components/Contact';
@@ -15,8 +19,11 @@ export default function App() {
         <Route path="/" element={<div className="App">
         <NavBar />
         <Banner />
+        <About />
         <Skills />
         <Projects />
+        <Timeline />
+        <Hobbies />
         <Footer />
       </div>} />
         <Route path="/contact" element={<div className="contact-page">
@@ -24,6 +31,7 @@ export default function App() {
           <Footer />
         </div>} />
       </Routes>
+      <ScrollToTop />
     </Router>
   );
 }
