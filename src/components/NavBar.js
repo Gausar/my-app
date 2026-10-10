@@ -4,6 +4,7 @@ import { Navbar, Container, Nav} from "react-bootstrap";
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
+import navIcon4 from '../assets/img/nav-icon4.svg';
 import logo from '../assets/img/gausar.png';
 // import './App.css';
 
@@ -80,6 +81,7 @@ export const NavBar = () => {
                     <a href="https://www.linkedin.com/in/gausar-amangyeldi-17308b298/"><img src={navIcon1} alt="icon"/></a>
                     <a href="https://www.facebook.com/gausar.amangyeldi.9/"><img src={navIcon2} alt="icon"/></a>
                     <a href="https://www.instagram.com/a_gausar/"><img src={navIcon3} alt="icon"/></a>
+                    <a href="https://youtube.com/@gausar?si=wjiEQ71aYLjQdOI1" target="_blank" rel="noopener noreferrer"><img src={navIcon4} alt="YouTube"/></a>
                 </div>
                 <button className="vvd" onClick={handleClick}><span>Let's connect</span></button>
             </span>
