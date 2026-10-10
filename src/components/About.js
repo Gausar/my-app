@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { ArrowRightCircle } from "react-bootstrap-icons";
+// import { Link } from "react-router-dom";
+// import { ArrowRightCircle } from "react-bootstrap-icons";
 import { Reveal } from "./Reveal";
 
 // Shown only if public/profile.jpg is missing, so the layout never breaks.
