@@ -12,7 +12,7 @@ export const Banner = () => {
     const period = 2000;
     
     const tick = useCallback(() => {
-        const toRotate = ["ML/AI Engineer", "Data scientist", "Web Developer"];
+        const toRotate = ["Software Engineer"];
 
         let i = loopNum % toRotate.length;
         let fullText = toRotate[i];
@@ -47,7 +47,7 @@ export const Banner = () => {
                 <Row className="align-items-center">
                     <Col xs={12} md={6} xl={7}>
                         <span className="tagline">Hi, My name is Gausar.</span>
-                        <h1>{`I am a future`}<br/><span className="wrap">{text}</span></h1>
+                        <h1>{`I am a `}<br/><span className="wrap">{text}</span></h1>
                         <p>Welcome to my portfolio website! <br/> Always try to turn into a green leaf.</p>
                     </Col>
                     <Col xs={12} md={6} xl={5}>

@@ -9,21 +9,17 @@ const SKILL_GROUPS = [
   {
     category: "Frontend",
     skills: [
-      { name: "Vue", level: 80 },
-      { name: "Nuxt", level: 75 },
-      { name: "TanStack Query", level: 70 },
-      { name: "React", level: 80 },
-      { name: "JavaScript", level: 80 },
-      { name: "Tailwind CSS", level: 85 },
+      { name: "Web Development", level: 90 },
+      { name: "iOS Development", level: 75 },
     ],
   },
   {
     category: "Backend",
     skills: [
-      { name: "Python", level: 80 },
+      { name: "Python", level: 75 },
       { name: "FastAPI", level: 75 },
       { name: "REST APIs", level: 75 },
-      { name: "PostgreSQL / SQL", level: 65 },
+      { name: "PostgreSQL / SQL", level: 90 },
     ],
   },
   {
@@ -32,23 +28,15 @@ const SKILL_GROUPS = [
     skills: [
       { name: "Retrieval-Augmented Generation", level: 90 },
       { name: "Prompt engineering", level: 80 },
-      { name: "LangChain / LlamaIndex", level: 85 },
       { name: "Embeddings & semantic search", level: 85 },
-      { name: "Vector DBs (FAISS / Chroma)", level: 80 },
-      { name: "Document parsing & chunking", level: 85 },
-      { name: "HF Transformers", level: 75 },
-      { name: "PyTorch", level: 60 },
-      { name: "RAG evaluation (RAGAS)", level: 75 },
     ],
   },
   {
     category: "Data & Tools",
     skills: [
-      { name: "pandas / NumPy", level: 70 },
-      { name: "Data visualization", level: 75 },
-      { name: "Git", level: 85 },
-      { name: "Docker", level: 55 },
-      { name: "Tableau / Power BI", level: 70 },
+      { name: "Data visualization", level: 80 },
+      { name: "Git", level: 90 },
+      { name: "Docker", level: 60 },
     ],
   },
 ];

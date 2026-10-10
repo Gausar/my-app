@@ -42,12 +42,12 @@ const LanguagesBlock = ({ languages }) => (
 );
 
 export const About = () => {
-  const [photoSrc, setPhotoSrc] = useState("/profile.jpeg");
+  const [photoSrc, setPhotoSrc] = useState("/Image.jpeg");
 
   // TODO(gausar): tweak these to match reality.
   const facts = [
     { label: "Location", value: "Ulaanbaatar, Mongolia" },
-    { label: "Focus", value: "Machine Learning & AI" },
+    { label: "Focus", value: "ML/AI" },
     { label: "Currently", value: "Working as a Software Engineer" },
     { label: "Open to", value: "Collaboration" },
   ];
@@ -56,7 +56,7 @@ export const About = () => {
   const languages = [
     { name: "Kazakh", level: "Native", dots: 5 },
     { name: "Mongolian", level: "Native", dots: 5 },
-    { name: "English", level: "IELTS 6.5 · B2", dots: 3 },
+    { name: "English", level: "B2->C1", dots: 4 },
     { name: "Japanese", level: "Beginner", dots: 1 },
   ];
 
@@ -103,7 +103,7 @@ export const About = () => {
               <LanguagesBlock languages={languages} />
             </div>
 
-            <div className="about-cta">
+            {/* <div className="about-cta">
               <a
                 className="about-btn primary"
                 href="/cv.pdf"
@@ -115,7 +115,7 @@ export const About = () => {
               <Link className="about-btn ghost" to="/contact">
                 Get in touch
               </Link>
-            </div>
+            </div> */}
             </Reveal>
           </Col>
         </Row>

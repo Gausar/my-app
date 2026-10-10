@@ -8,8 +8,16 @@ import { useInView } from "../hooks/useInView";
 // ============================================================================
 const TIMELINE = [
   {
-    date: "2024 — Present",
+    date: "2025.09.11 — Present",
     title: "Software Engineer",
+    org: "Mobicom",
+    description:
+      "Building iOS development. ",
+    type: "work",
+  },
+  {
+    date: "2024.09.22 — 2025.09.10",
+    title: "Junior Software Engineer",
     org: "Nasha Tech",
     description:
       "Building web applications and internal tools, and moving toward ML/AI work.",
@@ -17,7 +25,7 @@ const TIMELINE = [
   },
   {
     date: "2021 — 2025",
-    title: "BSc, Software Engineering",
+    title: "BSc, Computer Science",
     org: "National University of Mongolia",
     description:
       "Coursework in algorithms, data structures, machine learning and databases.",
