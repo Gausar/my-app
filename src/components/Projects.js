@@ -122,7 +122,7 @@ export const Projects = () => {
               </div>
             </Reveal>
 
-            <Row>
+            <Row className="justify-content-center">
               {visibleProjects.map((project, index) => (
                 <ProjectCard key={index} {...project} />
               ))}
