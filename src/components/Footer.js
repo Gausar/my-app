@@ -20,7 +20,7 @@ export const Footer = () => {
               <a href="https://www.instagram.com/a_gausar/"><img src={navIcon3} alt="Icon" /></a>
               <a href="https://youtube.com/@gausar?si=wjiEQ71aYLjQdOI1" target="_blank" rel="noopener noreferrer"><img src={navIcon4} alt="YouTube" /></a>
             </div>
-            <p>Copyright 2025. Gausar Amangyeldi</p>
+            <p>Copyright 2026. Gausar Amangyeldi</p>
           </Col>
         </Row>
       </Container>
